@@ -1,63 +1,65 @@
-import altair as alt
-import numpy as np
-import pandas as pd
 import streamlit as st
+import numpy as np
+from streamlit_cropper import st_cropper
+from PIL import Image
 
-"""
-# Welcome to Streamlit!
+st.set_option('deprecation.showfileUploaderEncoding', False)
 
-Edit `/streamlit_app.py` to customize this app to your heart's desire :heart:.
-If you have any questions, checkout our [documentation](https://docs.streamlit.io) and [community
-forums](https://discuss.streamlit.io).
+# Upload an image and set some options for demo purposes
+st.header("Cropper Demo")
+img_file = st.sidebar.file_uploader(label='Upload a file', type=['png', 'jpg'])
+realtime_update = st.sidebar.checkbox(label="Update in Real Time", value=True)
+box_color = st.sidebar.color_picker(label="Box Color", value='#0000FF')
+stroke_width = st.sidebar.number_input(label="Box Thickness", value=3, step=1)
 
-In the meantime, below is an example of what you can do with just a few lines of code:
-"""
-st.title("This is my title")
-st.subheader("this is a sub header")
-join_since = st.slider (
-    label = "Joined Since" ,
-    min_value = 1950 ,
-    max_value = 2024 ,
-    step = 1
-)
-animal = st.form('my_animal')
+aspect_choice = st.sidebar.radio(label="Aspect Ratio", options=["1:1", "16:9", "4:3", "2:3", "Free"])
+aspect_dict = {
+    "1:1": (1, 1),
+    "16:9": (16, 9),
+    "4:3": (4, 3),
+    "2:3": (2, 3),
+    "Free": None
+}
+aspect_ratio = aspect_dict[aspect_choice]
 
-# This is writing directly to the main body. Since the form container is
-# defined above, this will appear below everything written in the form.
-sound = st.selectbox('Sounds like', ['meow','woof','squeak','tweet'])
+return_type_choice = st.sidebar.radio(label="Return type", options=["Cropped image", "Rect coords"])
+return_type_dict = {
+    "Cropped image": "image",
+    "Rect coords": "box"
+}
+return_type = return_type_dict[return_type_choice]
 
-# These methods called on the form container, so they appear inside the form.
-submit = animal.form_submit_button(f'Say it with {sound}!')
-sentence = animal.text_input('Your sentence:', 'Where\'s the tuna?')
-say_it = sentence.rstrip('.,!?') + f', {sound}!'
-if submit:
-    animal.subheader(say_it)
-else:
-    animal.subheader('&nbsp;')
-    
-num_points = st.slider("Number of points in spiral", 1, 10000, 1100)
-num_turns = st.slider("Number of turns in spiral", 1, 300, 31)
+if img_file:
+    img = Image.open(img_file)
+    if not realtime_update:
+        st.write("Double click to save crop")
+    if return_type == 'box':
+        rect = st_cropper(
+            img,
+            realtime_update=realtime_update,
+            box_color=box_color,
+            aspect_ratio=aspect_ratio,
+            return_type=return_type,
+            stroke_width=stroke_width
+        )
+        raw_image = np.asarray(img).astype('uint8')
+        left, top, width, height = tuple(map(int, rect.values()))
+        st.write(rect)
+        masked_image = np.zeros(raw_image.shape, dtype='uint8')
+        masked_image[top:top + height, left:left + width] = raw_image[top:top + height, left:left + width]
+        st.image(Image.fromarray(masked_image), caption='masked image')
+    else:
+        # Get a cropped image from the frontend
+        cropped_img = st_cropper(
+            img,
+            realtime_update=realtime_update,
+            box_color=box_color,
+            aspect_ratio=aspect_ratio,
+            return_type=return_type,
+            stroke_width=stroke_width
+        )
 
-
-indices = np.linspace(0, 1, num_points)
-theta = 2 * np.pi * num_turns * indices
-radius = indices
-
-x = radius * np.cos(theta)
-y = radius * np.sin(theta)
-
-df = pd.DataFrame({
-    "x": x,
-    "y": y,
-    "idx": indices,
-    "rand": np.random.randn(num_points),
-})
-
-st.altair_chart(alt.Chart(df, height=700, width=700)
-    .mark_point(filled=True)
-    .encode(
-        x=alt.X("x", axis=None),
-        y=alt.Y("y", axis=None),
-        color=alt.Color("idx", legend=None, scale=alt.Scale()),
-        size=alt.Size("rand", legend=None, scale=alt.Scale(range=[1, 150])),
-    ))
+        # Manipulate cropped image at will
+        st.write("Preview")
+        _ = cropped_img.thumbnail((150, 150))
+        st.image(cropped_img)
