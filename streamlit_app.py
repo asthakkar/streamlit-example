@@ -12,6 +12,8 @@ forums](https://discuss.streamlit.io).
 
 In the meantime, below is an example of what you can do with just a few lines of code:
 """
+st.title("This is my title")
+st.subheader("this is a sub header")
 
 animal = st.form('my_animal')
 
