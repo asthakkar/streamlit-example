@@ -14,7 +14,12 @@ In the meantime, below is an example of what you can do with just a few lines of
 """
 st.title("This is my title")
 st.subheader("this is a sub header")
-
+join_since = st.slider (
+    label = "Joined Since" ,
+    min_value = 1950 ,
+    max_value = 2024 ,
+    step = 1
+)
 animal = st.form('my_animal')
 
 # This is writing directly to the main body. Since the form container is
