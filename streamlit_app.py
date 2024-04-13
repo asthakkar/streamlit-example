@@ -2,6 +2,7 @@ import streamlit as st
 import numpy as np
 from streamlit_cropper import st_cropper
 from PIL import Image
+from PIL import ImageOps
 
 st.set_option('deprecation.showfileUploaderEncoding', False)
 
@@ -31,6 +32,9 @@ return_type = return_type_dict[return_type_choice]
 
 if img_file:
     img = Image.open(img_file)
+    st.image(img, caption="image as is")
+    img = ImageOps.exif_transpose(img)
+    st.image(img, caption="image with exif off")
     if not realtime_update:
         st.write("Double click to save crop")
     if return_type == 'box':
