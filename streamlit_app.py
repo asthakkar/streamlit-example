@@ -31,7 +31,7 @@ return_type_dict = {
 return_type = return_type_dict[return_type_choice]
 
 if img_file:
-    #img = Image.open(img_file)
+    img = Image.open(img_file)
     #st.image(img, caption="image as is")
     img = ImageOps.exif_transpose(img)
     #st.image(img, caption="image with exif off")
