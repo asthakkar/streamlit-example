@@ -60,6 +60,6 @@ if img_file:
         )
 
         # Manipulate cropped image at will
-        st.write(":exclamation:Preview":exclamation:)
+        st.write(":exclamation:Preview:exclamation:")
         _ = cropped_img.thumbnail((150, 150))
         st.image(cropped_img)
