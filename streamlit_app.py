@@ -3,6 +3,7 @@ import numpy as np
 from streamlit_cropper import st_cropper
 from PIL import Image
 from PIL import ImageOps
+import rembg
 
 st.set_option('deprecation.showfileUploaderEncoding', False)
 
@@ -67,3 +68,14 @@ if img_file:
         st.write(":exclamation:Preview:exclamation:")
         _ = cropped_img.thumbnail((150, 150))
         st.image(cropped_img)
+        if cropped_img is not None:
+            if st.button("Remove Background"):
+                # Convert the input image to a numpy array
+                input_array = np.array(cropped_img)
+                # Apply background removal using rembg
+                output_array = rembg.remove(input_array)
+                # Create a PIL Image from the output array
+                output_image = Image.fromarray(output_array)
+                st.image(output_image, caption='Image that will be submitted', width=300)
+                image = output_image   
+
