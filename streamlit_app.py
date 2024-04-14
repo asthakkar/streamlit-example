@@ -6,8 +6,6 @@ from PIL import ImageOps
 import rembg
 
 st.set_option('deprecation.showfileUploaderEncoding', False)
-st.markdown(css, unsafe_allow_html=True)
-
 # Upload an image and set some options for demo purposes
 st.header("Cropper Demo")
 img_file = st.sidebar.file_uploader(label='Upload a file', type=['png', 'jpg'])
