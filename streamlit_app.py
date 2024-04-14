@@ -6,6 +6,7 @@ from PIL import ImageOps
 import rembg
 
 st.set_option('deprecation.showfileUploaderEncoding', False)
+st.set_page_config(layout="wide")
 
 # Upload an image and set some options for demo purposes
 st.header("Cropper Demo")
