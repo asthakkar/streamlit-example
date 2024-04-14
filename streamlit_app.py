@@ -6,7 +6,13 @@ from PIL import ImageOps
 import rembg
 
 st.set_option('deprecation.showfileUploaderEncoding', False)
-#st.set_page_config(layout="wide")
+<style>
+        min-width: 400px;
+        max-width: 1200px;
+    }
+</style>
+
+st.markdown(css, unsafe_allow_html=True)
 
 # Upload an image and set some options for demo purposes
 st.header("Cropper Demo")
