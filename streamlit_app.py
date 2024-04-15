@@ -51,10 +51,9 @@ if img_file:
     st.write(fn)
     if ext == ".png":
         st.write("This is a png file")
-    #     im = Image.convert("RGB")
-    #     st.write("after convert")
-    #     image=os.path.splitext(uploaded_file.name)[0] + ".jpg"
-    #     st.write(image)
+        img = Image.convert("RGB")
+        st.write("after convert")
+        st.write(img)
     #st.image(img, caption="image with exif off")
     if not realtime_update:
         st.write("Double click to save crop")
