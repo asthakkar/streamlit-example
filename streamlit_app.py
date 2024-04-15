@@ -4,6 +4,7 @@ from streamlit_cropper import st_cropper
 from PIL import Image
 from PIL import ImageOps
 import rembg
+import os
 
 st.set_option('deprecation.showfileUploaderEncoding', False)
 # Upload an image and set some options for demo purposes
