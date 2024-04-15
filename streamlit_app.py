@@ -30,7 +30,7 @@ return_type_dict = {
 }
 return_type = return_type_dict[return_type_choice]
 intl_message = '<p "color:Red; font-size: 4px;">Intl Bhaktiferi only applicable from North America but excluding to India.</p>'
-st.markdown(:red[intl_message], unsafe_allow_html=True)
+st.markdown(intl_message, unsafe_allow_html=True)
 
 col1, col2 = st.columns(2)
 with col1:
