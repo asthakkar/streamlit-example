@@ -41,9 +41,19 @@ if intl_from:
         input_data[field_key] = f"{intl_from} to {intl_to}"
 
 if img_file:
-    img = Image.open(img_file)
+    image = Image.open(img_file)
     #st.image(img, caption="image as is")
-    img = ImageOps.exif_transpose(img)
+    image = ImageOps.exif_transpose(img)
+    ext = os.path.splitext(image.name)[-1].lower()
+    fn = os.path.splitext(image.name)[0]
+    st.write(ext)
+    st.write(fn)
+    if ext == ".png":
+        st.write("This is a png file")
+    #     im = Image.convert("RGB")
+    #     st.write("after convert")
+    #     image=os.path.splitext(uploaded_file.name)[0] + ".jpg"
+    #     st.write(image)
     #st.image(img, caption="image with exif off")
     if not realtime_update:
         st.write("Double click to save crop")
