@@ -30,12 +30,12 @@ return_type_dict = {
 }
 return_type = return_type_dict[return_type_choice]
 col1, col2 = st.columns(2)
-    with col1:
-        intl_from = st.selectbox('International Bhaktiferi From', options=[''] + [str(year) for year in range(2024, 1980, -1)], index=0, key=f"input_{field.lower().replace(' ', '_')}_from")
-    with col2:
-        intl_to = st.selectbox('International Bhaktiferi To', options=[''] + [str(year) for year in range(2024, 1980, -1)], index=0, key=f"input_{field.lower().replace(' ', '_')}_to")
-    if intl_from:
-            input_data[field_key] = f"{intl_from} to {intl_to}"
+with col1:
+    intl_from = st.selectbox('International Bhaktiferi From', options=[''] + [str(year) for year in range(2024, 1980, -1)], index=0, key=f"input_{field.lower().replace(' ', '_')}_from")
+with col2:
+    intl_to = st.selectbox('International Bhaktiferi To', options=[''] + [str(year) for year in range(2024, 1980, -1)], index=0, key=f"input_{field.lower().replace(' ', '_')}_to")
+if intl_from:
+        input_data[field_key] = f"{intl_from} to {intl_to}"
 
 if img_file:
     img = Image.open(img_file)
