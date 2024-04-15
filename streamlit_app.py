@@ -51,7 +51,7 @@ if img_file:
     st.write(fn)
     if ext == ".png":
         st.write("This is a png file")
-        img = Image.convert("RGB")
+        img = img.convert("RGB")
         st.write("after convert")
         st.write(img)
     #st.image(img, caption="image with exif off")
