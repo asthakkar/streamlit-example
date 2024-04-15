@@ -43,7 +43,7 @@ if intl_from:
 if img_file:
     image = Image.open(img_file)
     #st.image(img, caption="image as is")
-    image = ImageOps.exif_transpose(img)
+    image = ImageOps.exif_transpose(image)
     ext = os.path.splitext(img_file.name)[-1].lower()
     fn = os.path.splitext(img_file.name)[0]
     st.write(ext)
