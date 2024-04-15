@@ -29,6 +29,9 @@ return_type_dict = {
     "Rect coords": "box"
 }
 return_type = return_type_dict[return_type_choice]
+intl_message = '<p color:Red; font-size: 8px;">Intl Bhaktiferi only applicable from North America but excluding to India.</p>'
+st.markdown(new_title, unsafe_allow_html=True)
+
 col1, col2 = st.columns(2)
 with col1:
     intl_from = st.selectbox('International Bhaktiferi From', options=[''] + [str(year) for year in range(2024, 1980, -1)], index=0, help="from N.A. excluding to India")
