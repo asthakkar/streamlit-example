@@ -31,7 +31,7 @@ return_type_dict = {
 return_type = return_type_dict[return_type_choice]
 col1, col2 = st.columns(2)
 with col1:
-    intl_from = st.selectbox('International Bhaktiferi From', options=[''] + [str(year) for year in range(2024, 1980, -1)], index=0)
+    intl_from = st.selectbox('International Bhaktiferi From', options=[''] + [str(year) for year in range(2024, 1980, -1)], index=0, help="from N.A. excluding to India")
 with col2:
     intl_to = st.selectbox('International Bhaktiferi To', options=[''] + [str(year) for year in range(2024, 1980, -1)], index=0)
 if intl_from:
