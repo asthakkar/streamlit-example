@@ -43,10 +43,10 @@ return_type = return_type_dict[return_type_choice]
 #         input_data[field_key] = f"{intl_from} to {intl_to}"
 def example():
     rain(
-        emoji="🎈",
+        emoji=":star:",
         font_size=54,
         falling_speed=5,
-        animation_length="infinite",
+        animation_length="10",
     )
 
 option = st.selectbox(
@@ -60,7 +60,7 @@ if option:
     if option == "Balloons":
         st.balloons()
     elif option == "Toast":
-         st.toast('Thank you.  Your information is submitted!', icon='🎉')
+         st.toast('Thank you.  Your information is submitted!', icon=':thumbsup:')
     elif option == "Rain":
         example()
     else:
