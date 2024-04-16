@@ -52,15 +52,20 @@ def example():
 col1,col2 = st.columns([1,2])
 col1.title('Sum:')
 
-with st.form('addition'):
-    a = st.number_input('a')
-    b = st.number_input('b')
-    submit = st.form_submit_button('add')
+option = st.selectbox(
+    'We can do different options for successful submission.  What would you like to see?',
+    ('Balloons', 'Toast', 'Rain'))
+
+st.write('You selected:', option)
+    submit = st.form_submit_button('Submit')
 
 if submit:
-    col2.title(f'{a+b:.2f}')
-    st.balloons()
-    #example()
+    if option == "Balloons":
+        st.balloons()
+    elif option == "Toast":
+         st.toast('Thank you.  Your information is submitted!', icon='🎉')
+    elif option == "Rain":
+        example()
 if img_file:
     img = Image.open(img_file)
     #st.image(img, caption="image as is")
