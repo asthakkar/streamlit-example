@@ -54,10 +54,10 @@ col1.title('Sum:')
 
 option = st.selectbox(
     'We can do different options for successful submission.  What would you like to see?',
-    ('Balloons', 'Toast', 'Rain'))
+    (' ', 'Balloons', 'Toast', 'Rain'))
 
 st.write('You selected:', option)
-submit = st.form_submit_button('Submit')
+#submit = st.form_submit_button('Submit')
 
 if submit:
     if option == "Balloons":
@@ -66,6 +66,8 @@ if submit:
          st.toast('Thank you.  Your information is submitted!', icon='🎉')
     elif option == "Rain":
         example()
+    else
+        st.write ("Please make a selection.")
 if img_file:
     img = Image.open(img_file)
     #st.image(img, caption="image as is")
