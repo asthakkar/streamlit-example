@@ -63,7 +63,7 @@ if option:
         st.snow()
     elif option == "Toast":
          st.toast('Thank you.  Your information is submitted!', icon='👍')
-    elif option == "Rain":
+    elif option == "Leaves":
         example()
     else:
         st.write ("Please make a selection.")
