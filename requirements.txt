@@ -3,3 +3,4 @@ pandas
 streamlit
 streamlit_cropper
 rembg
+streamlit_extras
