@@ -40,12 +40,16 @@ return_type = return_type_dict[return_type_choice]
 #     intl_to = st.selectbox('International Bhaktiferi To', options=[''] + [str(year) for year in range(2024, 1980, -1)], index=0)
 # if intl_from:
 #         input_data[field_key] = f"{intl_from} to {intl_to}"
-with st.form("my_form"):
-   st.write("Inside the form")
-   my_number = st.slider('Pick a number', 1, 10)
-   my_color = st.selectbox('Pick a color', ['red','orange','green','blue','violet'])
-   st.form_submit_button('Submit my picks')
+col1,col2 = st.columns([1,2])
+col1.title('Sum:')
 
+with st.form('addition'):
+    a = st.number_input('a')
+    b = st.number_input('b')
+    submit = st.form_submit_button('add')
+
+if submit:
+    col2.title(f'{a+b:.2f}')
 if img_file:
     img = Image.open(img_file)
     #st.image(img, caption="image as is")
