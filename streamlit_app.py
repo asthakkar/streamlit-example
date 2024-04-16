@@ -30,8 +30,8 @@ return_type_dict = {
     "Rect coords": "box"
 }
 return_type = return_type_dict[return_type_choice]
-intl_message = '<p style="font-family:Source Sans Pro; color:Red; font-size: 12px;">Intl Bhaktiferi only applicable from North America but excluding to India.</p>'
-st.markdown(intl_message, unsafe_allow_html=True)
+#intl_message = '<p style="font-family:Source Sans Pro; color:Red; font-size: 12px;">Intl Bhaktiferi only applicable from North America but excluding to India.</p>'
+#st.markdown(intl_message, unsafe_allow_html=True)
 
 # col1, col2 = st.columns(2)
 # with col1:
@@ -40,6 +40,11 @@ st.markdown(intl_message, unsafe_allow_html=True)
 #     intl_to = st.selectbox('International Bhaktiferi To', options=[''] + [str(year) for year in range(2024, 1980, -1)], index=0)
 # if intl_from:
 #         input_data[field_key] = f"{intl_from} to {intl_to}"
+with st.form("my_form"):
+   st.write("Inside the form")
+   my_number = st.slider('Pick a number', 1, 10)
+   my_color = st.selectbox('Pick a color', ['red','orange','green','blue','violet'])
+   st.form_submit_button('Submit my picks')
 
 if img_file:
     img = Image.open(img_file)
