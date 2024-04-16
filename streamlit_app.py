@@ -49,9 +49,6 @@ def example():
         animation_length="infinite",
     )
 
-col1,col2 = st.columns([1,2])
-col1.title('Sum:')
-
 option = st.selectbox(
     'We can do different options for successful submission.  What would you like to see?',
     (' ', 'Balloons', 'Toast', 'Rain'))
@@ -66,7 +63,7 @@ if submit:
          st.toast('Thank you.  Your information is submitted!', icon='🎉')
     elif option == "Rain":
         example()
-    else
+    else:
         st.write ("Please make a selection.")
 if img_file:
     img = Image.open(img_file)
