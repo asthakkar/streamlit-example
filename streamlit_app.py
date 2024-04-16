@@ -59,6 +59,7 @@ with st.form('addition'):
 
 if submit:
     col2.title(f'{a+b:.2f}')
+    st.balloon
     example()
 if img_file:
     img = Image.open(img_file)
