@@ -8,7 +8,7 @@ import os
 
 st.set_option('deprecation.showfileUploaderEncoding', False)
 # Upload an image and set some options for demo purposes
-st.header("Cropper Demo")
+st.header("Test App")
 img_file = st.sidebar.file_uploader(label='Upload a file', type=['png', 'jpg'])
 realtime_update = st.sidebar.checkbox(label="Update in Real Time", value=True)
 box_color = st.sidebar.color_picker(label="Box Color", value='#0000FF')
@@ -33,13 +33,13 @@ return_type = return_type_dict[return_type_choice]
 intl_message = '<p style="font-family:Source Sans Pro; color:Red; font-size: 12px;">Intl Bhaktiferi only applicable from North America but excluding to India.</p>'
 st.markdown(intl_message, unsafe_allow_html=True)
 
-col1, col2 = st.columns(2)
-with col1:
-    intl_from = st.selectbox('International Bhaktiferi From', options=[''] + [str(year) for year in range(2024, 1980, -1)], index=0, help="from N.A. excluding to India")
-with col2:
-    intl_to = st.selectbox('International Bhaktiferi To', options=[''] + [str(year) for year in range(2024, 1980, -1)], index=0)
-if intl_from:
-        input_data[field_key] = f"{intl_from} to {intl_to}"
+# col1, col2 = st.columns(2)
+# with col1:
+#     intl_from = st.selectbox('International Bhaktiferi From', options=[''] + [str(year) for year in range(2024, 1980, -1)], index=0, help="from N.A. excluding to India")
+# with col2:
+#     intl_to = st.selectbox('International Bhaktiferi To', options=[''] + [str(year) for year in range(2024, 1980, -1)], index=0)
+# if intl_from:
+#         input_data[field_key] = f"{intl_from} to {intl_to}"
 
 if img_file:
     img = Image.open(img_file)
