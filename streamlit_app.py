@@ -57,7 +57,7 @@ option = st.selectbox(
     ('Balloons', 'Toast', 'Rain'))
 
 st.write('You selected:', option)
-    submit = st.form_submit_button('Submit')
+submit = st.form_submit_button('Submit')
 
 if submit:
     if option == "Balloons":
