@@ -43,15 +43,15 @@ return_type = return_type_dict[return_type_choice]
 #         input_data[field_key] = f"{intl_from} to {intl_to}"
 def example():
     rain(
-        emoji="⭐",
+        emoji="🎊",
         font_size=54,
         falling_speed=5,
-        animation_length="10",
+        animation_length="2",
     )
 
 option = st.selectbox(
     'We can do different options for successful submission.  What would you like to see?',
-    (' ', 'Balloons', 'Toast', 'Rain'))
+    (' ', 'Balloons', 'Snow', 'Toast', 'Rain'))
 
 st.write('You selected:', option)
 #submit = st.form_submit_button('Submit')
@@ -59,6 +59,8 @@ st.write('You selected:', option)
 if option:
     if option == "Balloons":
         st.balloons()
+    elif option == "Snow":
+        st.snow()
     elif option == "Toast":
          st.toast('Thank you.  Your information is submitted!', icon='👍')
     elif option == "Rain":
