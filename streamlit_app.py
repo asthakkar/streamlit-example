@@ -40,13 +40,13 @@ return_type = return_type_dict[return_type_choice]
 #     intl_to = st.selectbox('International Bhaktiferi To', options=[''] + [str(year) for year in range(2024, 1980, -1)], index=0)
 # if intl_from:
 #         input_data[field_key] = f"{intl_from} to {intl_to}"
- def example():
-    rain(
-        emoji="🎈",
-        font_size=54,
-        falling_speed=5,
-        animation_length="infinite",
-    )
+def example():
+rain(
+    emoji="🎈",
+    font_size=54,
+    falling_speed=5,
+    animation_length="infinite",
+)
 
 col1,col2 = st.columns([1,2])
 col1.title('Sum:')
