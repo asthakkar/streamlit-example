@@ -41,12 +41,12 @@ return_type = return_type_dict[return_type_choice]
 # if intl_from:
 #         input_data[field_key] = f"{intl_from} to {intl_to}"
 def example():
-rain(
-    emoji="🎈",
-    font_size=54,
-    falling_speed=5,
-    animation_length="infinite",
-)
+    rain(
+        emoji="🎈",
+        font_size=54,
+        falling_speed=5,
+        animation_length="infinite",
+    )
 
 col1,col2 = st.columns([1,2])
 col1.title('Sum:')
