@@ -48,6 +48,8 @@ def example():
         falling_speed=5,
         animation_length="2",
     )
+# Camera input
+image = st.camera_input("Scan your QR Code")
 
 option = st.selectbox(
     'We can do different options for successful submission.  What would you like to see?',
