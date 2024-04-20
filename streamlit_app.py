@@ -74,7 +74,8 @@ def example():
 if img_file:
     img = Image.open(img_file)
     width, height = img.size
-    st.write(width + " " + height)
+    st.write(width)
+    st.write(height)
     #st.image(img, caption="image as is")
     img = ImageOps.exif_transpose(img)
     ext = os.path.splitext(img_file.name)[-1].lower()
