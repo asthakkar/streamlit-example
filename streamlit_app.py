@@ -41,6 +41,8 @@ return_type = return_type_dict[return_type_choice]
 #     intl_to = st.selectbox('International Bhaktiferi To', options=[''] + [str(year) for year in range(2024, 1980, -1)], index=0)
 # if intl_from:
 #         input_data[field_key] = f"{intl_from} to {intl_to}"
+
+
 def example():
     rain(
         emoji="🍂",
@@ -71,6 +73,8 @@ if option:
         st.write ("Please make a selection.")
 if img_file:
     img = Image.open(img_file)
+    width, height = img.size
+    st.write(width + " " + height)
     #st.image(img, caption="image as is")
     img = ImageOps.exif_transpose(img)
     ext = os.path.splitext(img_file.name)[-1].lower()
