@@ -51,26 +51,26 @@ def example():
         animation_length="2",
     )
 # Camera input
-image = st.camera_input("Scan your QR Code")
+#image = st.camera_input("Scan your QR Code")
 
-option = st.selectbox(
-    'We can do different options for successful submission.  What would you like to see?',
-    (' ', 'Balloons', 'Snow', 'Toast', 'Leaves'))
+# option = st.selectbox(
+#     'We can do different options for successful submission.  What would you like to see?',
+#     (' ', 'Balloons', 'Snow', 'Toast', 'Leaves'))
 
-st.write('You selected:', option)
+#st.write('You selected:', option)
 #submit = st.form_submit_button('Submit')
 
-if option:
-    if option == "Balloons":
-        st.balloons()
-    elif option == "Snow":
-        st.snow()
-    elif option == "Toast":
-         st.toast('Thank you.  Your information is submitted!', icon='👍')
-    elif option == "Leaves":
-        example()
-    else:
-        st.write ("Please make a selection.")
+# if option:
+#     if option == "Balloons":
+#         st.balloons()
+#     elif option == "Snow":
+#         st.snow()
+#     elif option == "Toast":
+#          st.toast('Thank you.  Your information is submitted!', icon='👍')
+#     elif option == "Leaves":
+#         example()
+#     else:
+#         st.write ("Please make a selection.")
 if img_file:
     img = Image.open(img_file)
     width, height = img.size
