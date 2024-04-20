@@ -76,6 +76,9 @@ if img_file:
     width, height = img.size
     st.write(width)
     st.write(height)
+    if(width < 700 OR height < 700):
+        st.write ("image is too small")
+        st.stop()
     #st.image(img, caption="image as is")
     img = ImageOps.exif_transpose(img)
     ext = os.path.splitext(img_file.name)[-1].lower()
