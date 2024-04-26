@@ -7,6 +7,10 @@ import rembg
 import os
 from streamlit_extras.let_it_rain import rain
 
+if st.secrets["maintenance_mode"] == "TRUE":
+    st.write ("The Site is in Maintenance Mode.  Please check back again later.")
+    st.stop()
+
 st.set_option('deprecation.showfileUploaderEncoding', False)
 # Upload an image and set some options for demo purposes
 st.header("Test App")
