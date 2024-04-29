@@ -12,7 +12,7 @@ from streamlit_extras.let_it_rain import rain
 #    st.stop()
 
 range1 = list(range(6220,6235))
-print(range1)
+st.write(range1)
 
 
 
