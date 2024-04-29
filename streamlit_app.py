@@ -11,8 +11,9 @@ from streamlit_extras.let_it_rain import rain
 #    st.write ("The Site is in Maintenance Mode.  Please check back again later.")
 #    st.stop()
 
-range1 = list(range(6220,6235))
+range1 = list(range(6220,6236))
 st.write(range1)
+range1.append = list(range(9535,9569))
 
 
 
