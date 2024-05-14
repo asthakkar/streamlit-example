@@ -20,7 +20,7 @@ A Streamlit map template
 """
 
 st.title("Swadhyaya Kendra Locations")
-m = leafmap.Map(center=[40, -100], zoom=4)
+m = leafmap.Map(center=[40, -100], zoom=2)
 cities = "https://raw.githubusercontent.com/giswqs/leafmap/master/examples/data/us_cities.csv"
 regions = "https://raw.githubusercontent.com/giswqs/leafmap/master/examples/data/us_regions.geojson"
 
