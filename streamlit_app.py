@@ -6,16 +6,26 @@ from PIL import ImageOps
 import rembg
 import os
 from streamlit_extras.let_it_rain import rain
+import leafmap.foliumap as leafmap
 
 #if st.secrets["maintenance_mode"] == "TRUE":
 #    st.write ("The Site is in Maintenance Mode.  Please check back again later.")
 #    st.stop()
 
-range1 = list(range(6220,6236))
-st.write(range1)
-range1.append = list(range(9535,9569))
+m = leafmap.Map(center=[40, -100], zoom=4)
+cities = "https://raw.githubusercontent.com/giswqs/leafmap/master/examples/data/us_cities.csv"
+regions = "https://raw.githubusercontent.com/giswqs/leafmap/master/examples/data/us_regions.geojson"
 
-
+m.add_geojson(regions, layer_name="US Regions")
+m.add_points_from_xy(
+    cities,
+    x="longitude",
+    y="latitude",
+    color_column="region",
+    icon_names=["gear", "map", "leaf", "globe"],
+    spin=True,
+    add_legend=True,
+)
 
 st.set_option('deprecation.showfileUploaderEncoding', False)
 # Upload an image and set some options for demo purposes
