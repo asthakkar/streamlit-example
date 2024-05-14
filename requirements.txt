@@ -4,3 +4,6 @@ streamlit
 streamlit_cropper
 rembg
 streamlit_extras
+geopandas
+leafmap
+owslib
